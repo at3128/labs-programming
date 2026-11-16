@@ -5,6 +5,9 @@ erDiagram
         int year
         string isbn
     }
+    COPY {
+        string inventory_number
+    }
     AUTHOR {
         string name
         string country
@@ -21,6 +24,7 @@ erDiagram
     }
 
     BOOK }o--o{ AUTHOR : "написана"
+    BOOK ||--o{ COPY : "має примірники"
+    COPY ||--o{ LOAN : "видається"
     READER ||--o{ LOAN : "має"
-    BOOK ||--o{ LOAN : "видається"
 ```
